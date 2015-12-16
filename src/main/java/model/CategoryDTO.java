@@ -14,7 +14,7 @@ public class CategoryDTO extends AbstractDTO {
         super(name);
         this.parent = parent;
         
-        setTypes(types);
+        setTypes(Arrays.asList(types));
     }
     
     public CategoryDTO(String name, String date, AbstractDTO parent, CatTypeDTO ...types) {
@@ -28,7 +28,4 @@ public class CategoryDTO extends AbstractDTO {
 	public void setDate(String date) {this.date = date;}
 	public List<CatTypeDTO> getTypes() {return types;}
 	public void setTypes(List<CatTypeDTO> types) {this.types = types;}
-	public void setTypes(CatTypeDTO... types) {
-		this.types = Arrays.asList(types);
-	}
 }

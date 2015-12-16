@@ -15,7 +15,8 @@ public class Category extends AbstractEntity{
         super(name);
         this.parent = parent;
         
-        setTypes(types);
+        this.types = Arrays.asList(types);
+		for(CatType t:types) t.setCategory(this);
     }
 
     public Category(String name, Date date, Category parent, CatType ...types) {
@@ -29,8 +30,4 @@ public class Category extends AbstractEntity{
 	public void setDate(Date date) {this.date = date;}
 	public List<CatType> getTypes() {return types;}
 	public void setTypes(List<CatType> types) {this.types = types;}
-	public void setTypes(CatType... types) {
-		this.types = Arrays.asList(types);
-		for(CatType t:types) t.setCategory(this);
-	}
 }
